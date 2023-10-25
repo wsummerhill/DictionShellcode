@@ -21,7 +21,7 @@ int main(void)
     DWORD oldprotect = 0;
 
 	// Converted shellcode placeholder
-	unsigned char shellcode[276];	// UPDATE: This MUST be same length as above dict_words array
+	unsigned char shellcode[LENGTH];	// UPDATE: This MUST be same length as above dict_words array
 	unsigned int shellcode_len = sizeof(shellcode);
 
     // Decode shellcode using input Dictionary wordlist "translate_dict"
