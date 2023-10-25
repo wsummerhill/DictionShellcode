@@ -51,3 +51,4 @@ Upon execution, the encoded shellcode output will be copied to your clipboard in
 ## Executing dictionary-encoded shellcode
 
 Drop your dictionary wordlist from the output `translate_dict` variable and your dictionary-encoded shellcode `dict_words` variable into one of the provided payloads then compile/run to execute! <br />
+For C++ payloads, be sure to update the `shellcode` length on line 24 too!<br />
