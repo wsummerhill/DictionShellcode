@@ -10,6 +10,9 @@ Compile: .\compile.bat
 // Shellcode translation dictionary
 unsigned char* translate_dict[256] = { }; // SHELLCODE DICTIONARY GOES HERE
 
+// Shellcode in Dictionary words format -> SUB YOUR SHELLCODE OUTPUT HERE AND UPDATE LENGTH
+const char* dict_words[LENGTH] = { };
+
 int main(void) 
 {    
 	void * exec_mem;
@@ -17,12 +20,8 @@ int main(void)
 	HANDLE th;
     DWORD oldprotect = 0;
 
-    // Shellcode in Dictionary words format -> SUB YOUR SHELLCODE OUTPUT HERE AND UPDATE LENGTH
-	const char* dict_words[LENGTH] = { };
-
-
 	// Converted shellcode placeholder
-	unsigned char shellcode[276];	// NOTE: This MUST be same length as above dict_words array
+	unsigned char shellcode[276];	// UPDATE: This MUST be same length as above dict_words array
 	unsigned int shellcode_len = sizeof(shellcode);
 
     // Decode shellcode using input Dictionary wordlist "translate_dict"
