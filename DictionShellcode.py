@@ -2,7 +2,7 @@ import sys
 import random
 import argparse
 import pyperclip 	# clipboard for all OS's
-import re		# regex
+import re			# regex
 
 # Get English wordlist
 with open('english-words.txt') as f:
@@ -92,6 +92,8 @@ def main(args=sys.argv[1:]):
 
 	print('[+] Shellcode Dictionary (256-bytes):\n')
 	print(translation_var + '\n')
+
+	print(f'[+] Shellcode length: {shellcode_len}')
 
 	# Copy Dictionary-encoded shellcode to Clipboard
 	pyperclip.copy(translation_shellcode)

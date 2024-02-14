@@ -4,7 +4,6 @@ C# Diction Shellcode Program
 Compile EXE:
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /target:exe /platform:x64 /out:DictionShellcode.exe CSHarp_DictionShellcode.cs
 */
-
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
@@ -22,7 +21,6 @@ class Program
     private static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);
 
     private static UInt32 MC = 0x1000;
- 
     private static UInt32 PER = 0x40;
 
     // Shellcode translation Dictionary

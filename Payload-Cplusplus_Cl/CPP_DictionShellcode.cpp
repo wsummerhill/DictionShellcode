@@ -1,9 +1,8 @@
 /*
-CPP Diction Shellcode Program
+C++ Diction Shellcode Program
 
-Start Visual Studio command-line tools
+Start Visual Studio command-line tools before compiling
 Compile: .\compile.bat
-
 */
 #include <windows.h>
 
