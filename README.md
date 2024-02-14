@@ -2,7 +2,9 @@
 
 Encode shellcode into dictionary words to avoid the usual shellcode XOR/AES encryption libraries/signatures and reduce payload entropy for increased evasion.<br />
 
-Ultimately converts shellcode bytes to a word, stores plaintext words in your payload in place of shellcode, and decodes words to shellcode at runtime using a "translation dictionary" of shellcode words (bytes).
+Ultimately converts shellcode bytes to a word, stores plaintext words in your payload in place of shellcode, and decodes words to shellcode at runtime using a "translation dictionary" of shellcode words (bytes).<br />
+
+The Python tool reads the `english-words.txt` file to pull random dictionary words to be encoded as shellcode bytes. This file can easily be modified or changed to another dictionary file of your choosing (i.e. Microsoft strings, postal/zip codes, whatever else).<br />
 
 ## Create dictionary encoded shellcode
 
