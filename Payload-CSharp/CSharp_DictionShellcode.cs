@@ -23,8 +23,8 @@ class Program
     private static UInt32 MC = 0x1000;
     private static UInt32 PER = 0x40;
 
-    // Shellcode translation Dictionary
-    static string[] translate_dict = new string[256] {  }; // SHELLCODE DICTIONARY GOES HERE
+    // Shellcode translation Dictionary - SHELLCODE DICTIONARY GOES HERE
+    static string[] translate_dict = new string[256] {  };
 
     static void Main(string[] args)
     {
