@@ -6,6 +6,8 @@ Ultimately converts shellcode bytes to a word, stores plaintext words in your pa
 
 The Python tool reads the `english-words.txt` file to pull random dictionary words to be encoded as shellcode bytes. This file can easily be modified or changed to another dictionary file of your choosing (i.e. Microsoft strings, postal/zip codes, whatever else).<br />
 
+[Supporting tool: Calculating Shannon Entropy of files](https://gist.github.com/wsummerhill/a5a2068e717b5c290ab345c05ef99fcc)
+
 ## Create dictionary encoded shellcode
 
 Use `DictionShellcode.py` to encode your input shellcode file into dictionary word format.
