@@ -14,7 +14,7 @@ Use `DictionShellcode.py` to encode your input shellcode file into dictionary wo
 
 ```
 > python3 DictionShellcode.py -h
-usage: DictionShellcode.py [-h] [-file FILE] [-lang {cs,cpp}] [-rot] [-outfile OUTFILE]
+usage: DictionShellcode.py [-h] [-file FILE] [-lang {cs,cpp}] [-outfile OUTFILE]
 
 Shellcode converter to Dictionary list
 
