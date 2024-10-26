@@ -2,11 +2,13 @@
 
 Encode shellcode into dictionary words to avoid the usual shellcode XOR/AES encryption libraries/signatures and reduce payload entropy for increased evasion.<br />
 
-Ultimately converts shellcode bytes to a word, stores plaintext words in your payload in place of shellcode, and decodes words to shellcode at runtime using a "translation dictionary" of shellcode words (bytes).<br />
+Ultimately the tool converts shellcode bytes to a word, stores plaintext words in your payload in place of shellcode, and at runtime decode words to shellcode using a "translation dictionary" of shellcode words (bytes).<br />
 
 The Python tool reads the `english-words.txt` file to pull random dictionary words to be encoded as shellcode bytes. This file can easily be modified or changed to another dictionary file of your choosing (i.e. Microsoft strings, postal/zip codes, whatever else).<br />
 
-[Supporting tool: Calculating Shannon Entropy of files](https://gist.github.com/wsummerhill/a5a2068e717b5c290ab345c05ef99fcc)
+Supporting tool: [Calculating Shannon Entropy of files](https://gist.github.com/wsummerhill/a5a2068e717b5c290ab345c05ef99fcc)
+
+**SecTor 2024 conference presentation slides: [Simplified Malware Evasion - Entropy and Other Techniques](https://i.blackhat.com/SecTor-2024/Sector-24-Summerhill-SimplifiedMalwareEvasion.pdf)**
 
 ## Create dictionary encoded shellcode
 
