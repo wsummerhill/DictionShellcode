@@ -8,7 +8,9 @@ The Python tool reads the `english-words.txt` file to pull random dictionary wor
 
 Supporting tool: [Calculating Shannon Entropy of files](https://gist.github.com/wsummerhill/a5a2068e717b5c290ab345c05ef99fcc)
 
-**SecTor 2024 conference presentation slides: [Simplified Malware Evasion - Entropy and Other Techniques](https://i.blackhat.com/SecTor-2024/Sector-24-Summerhill-SimplifiedMalwareEvasion.pdf)**
+### Conference Talk
+
+SecTor 2024 conference presentation slides: [Simplified Malware Evasion - Entropy and Other Techniques](https://i.blackhat.com/SecTor-2024/Sector-24-Summerhill-SimplifiedMalwareEvasion.pdf)
 
 ## Create dictionary encoded shellcode
 
