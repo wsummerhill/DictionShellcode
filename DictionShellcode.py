@@ -19,7 +19,7 @@ def main(args=sys.argv[1:]):
 	# Instantiate the argument parser
 	parser = argparse.ArgumentParser(description='Shellcode converter to Dictionary list')
 	parser.add_argument('-file', '-f', help="Raw binary shellcode file for input")
-	parser.add_argument('-lang', '-l', help="Output language format", choices=['cs','cpp'])
+	parser.add_argument('-lang', '-l', help="Output language format", choices=['cs','cpp','rust'])
 	parser.add_argument('-outfile', '-o', help="OPTIONAL: File output with encoded dictionary words separated by newlines", required=False)
 	args = parser.parse_args(args)
 
@@ -41,18 +41,25 @@ def main(args=sys.argv[1:]):
 	hex_word_dict = assign_hex_to_words(dictionary)
 
 	# Output variable placeholder for shellcode dictionary list
-	if output_lang == 'cpp':
-		translation_var = "const char* translate_dict[256] = { "
-	else: #cpp
-		translation_var = "public static string[] translate_dict = new string[256] { "
+	match output_lang:
+		case 'cpp':
+			translation_var = "const char* translate_dict[256] = { "
+		case 'cs':
+			translation_var = "public static string[] translate_dict = new string[256] { "
+		case 'rust': 
+			translation_var = "const TRANSLATE_DICT: [&str; 256] = [\n"
 
 	# Loop through Dictionary wordlist to build variable
 	for hex_value, word in hex_word_dict.items():
 	    translation_var += f'"{word}",'
 	
-	# Cleanup output dictionary variable
+	# Cleanup output translate variable
 	translation_var = translation_var[:-1]
-	translation_var += " };"
+
+	if output_lang == 'rust':
+		translation_var += "\n];"
+	else: # cpp and cs
+		translation_var += " };"
 
 	# Read shellcode
 	shellcode = getRawShellcode(shellcode_file)
@@ -62,10 +69,13 @@ def main(args=sys.argv[1:]):
 	shellcode_len = len(shellcode_hex.split(','))
 	
 	# Output variable placeholder for converted shellcode to dictionary words
-	if output_lang == 'cpp':
-		translation_shellcode = "const char* dict_words[XYZ] = { "
-	else: #cpp
-		translation_shellcode = "string[] dict_words = new string[XYZ] { "
+	match output_lang:
+		case 'cpp':
+			translation_shellcode = "const char* dict_words[XYZ] = { "
+		case 'cs':
+			translation_shellcode = "string[] dict_words = new string[XYZ] { "
+		case 'rust':
+			translation_shellcode = "let dict_words = [\n"
 
 	lineCount = 0
 	file_output = ""
@@ -84,8 +94,12 @@ def main(args=sys.argv[1:]):
 
 	# Cleanup output shellcode variable
 	translation_shellcode = translation_shellcode[:-1]
-	translation_shellcode += " };"
-	translation_shellcode = translation_shellcode.replace('XYZ', str(shellcode_len)) #Add length to shellcode var
+
+	if output_lang == 'rust':
+		translation_shellcode += "\n];"
+	else: # cpp and cs
+		translation_shellcode += " };"
+		translation_shellcode = translation_shellcode.replace('XYZ', str(shellcode_len)) #Add length to shellcode var
 
 
 	################ Output ################
